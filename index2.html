@@ -1,0 +1,217 @@
+<!doctype html>
+
+<html>
+
+
+<!--using <h1>to get a headline -->
+<h1>this is your timing page</h1>
+
+
+
+
+<head1>
+  <!--show(elementId)can display context or hide it; learned on w3school -->
+  <script>
+    function show(elementId) {
+      const element = document.getElementById(elementId);
+      if (element.style.display === "none") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+</head1>
+
+<head>
+  <!--mata... The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+
+  The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--change the style of showing remaining time: center, size, -->
+    <style>
+div {
+  text-align: center;
+  font-size: 45px;
+}
+
+ {
+    text-align: center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: normal;
+
+}
+    </style>
+
+</head>
+
+
+
+<head2>
+  <!--enter a text -->
+  time when you click this to check ur progress
+</head2>
+
+<script>
+    function toggle(elementId) {
+      const element = document.getElementById(elementId);
+      if (element.style.display === "none") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+<br> <!-- br is to take the other line-->
+
+<!--make a form -->
+<form>hitting timeline<br><br>
+
+     <input type="text" id="year"><span>year(2023.etc)</span>
+
+     <br>
+
+     <input type="text" id="month"><span>month</span>
+
+     <br>
+     <input type="text" id="day"><span>date</span>
+
+     <br>
+
+     <input type="text" id="hour"><span>hour(s)</span><br>
+
+     <input type="text" id="minute"><span>min(s)</span><br>
+
+     <input type="text" id="second"><span>sec(s)</span><br>
+
+     <input type="button" value="yes" onclick="showut()">
+
+</form><br><br>
+
+
+
+<script>
+  //define the showut function linked to the button
+  function showut(){
+
+    //get the hitting data target
+
+    var myyear=document.getElementById("year").value;
+
+    var mymonth=document.getElementById("month").value-1;
+
+    var myday=document.getElementById("day").value;
+
+    var myhour=document.getElementById("hour").value;
+
+    var myminute=document.getElementById("minute").value;
+
+    var mysecond=document.getElementById("second").value;
+
+    var time=Number(new Date(myyear,mymonth,myday,myhour,myminute,mysecond));
+
+
+  //get what time it is now
+
+  var nowTime=Date.now();
+
+
+
+  //get time difference; distance
+
+  var timediff=Math.round((time-nowTime)/1000);
+
+  //remaining days using divide
+
+  var day=parseInt(timediff/3600/24);
+
+
+
+  //remaining hours using divide and mod
+
+  var hour=parseInt(timediff/3600%24);
+
+
+
+  //remaining mins using divide and mod
+
+  var minute=parseInt(timediff/60%60);
+
+
+
+  //remaining secs using mod
+
+  var second=timediff%60;
+
+
+  //output the whole remaining time
+
+  document.getElementById("_d").innerHTML=day;
+
+  document.getElementById("_h").innerHTML=hour;
+
+  document.getElementById("_m").innerHTML=minute;
+
+  document.getElementById("_s").innerHTML=second;
+
+
+  <!--using setTimeout function to change showut per sec -->
+  var set=setTimeout(showut,1000);
+  if(timediff=0){clearInterval(set);}
+
+}
+
+</script>
+
+
+
+
+<body2>
+
+  <button onclick="toggle(`target`)">-TIMING-0w0</button>
+  <h2 id="target">
+
+   <body>
+
+     <div class="time1">remaining:<br><br>
+
+     <span id="_d"></span>d
+
+     <span id="_h"></span>h
+
+     <span id="_m"></span>m
+
+     <span id="_s"></span>s
+
+    </div>
+
+  </h2>
+</body2>
+
+
+<br>
+<p1>
+  and click the button -> to hide and show the time u r checking progress
+</p1>
+
+<body1>
+
+  <button onclick="show(`timenow`)">CLEAR/OPEN</button>
+  <p id="timenow">
+
+
+  <button type="botton"
+  onclick="document.getElementById('show').innerHTML = Date()"
+  >
+
+  <!--show the date in next line-->
+  <p id="show"></p>
+
+</body1>
+
+
+<!--end the html code -->
+
+</html>
